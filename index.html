@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gracie3MTT PORT HARCOURT MARKET PRICE</title>
+  <style>
+    :root {
+      --primary: #4ade80;
+      --primary-hover: #22c55e;
+      --bg-gradient: linear-gradient(135deg, #000000 10%, #ec4899 50%, #22c55e 90%);
+      --glass-bg: rgba(0, 0, 0, 0.6);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --text-main: #f8fafc;
+      --text-muted: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      background: linear-gradient(to right, #4ade80, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 40px;
+      border-radius: 24px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    select {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--glass-border);
+      color: var(--text-main);
+      border-radius: 12px;
+      font-size: 1rem;
+      appearance: none;
+      outline: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
+    }
+
+    select option {
+      background: #1e293b;
+      color: #fff;
+    }
+
+    button {
+      width: 100%;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      padding: 16px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+      background: linear-gradient(135deg, #16a34a, #15803d);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .table-wrapper {
+      margin-top: 30px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      display: none;
+      animation: slideDown 0.4s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(15, 23, 42, 0.4);
+    }
+
+    th,
+    td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    th {
+      background: rgba(255, 255, 255, 0.05);
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr {
+      transition: background 0.3s ease;
+    }
+
+    tr:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .cheapest {
+      background: rgba(74, 222, 128, 0.1);
+      position: relative;
+    }
+
+    .cheapest td {
+      color: #4ade80;
+      font-weight: 600;
+    }
+
+    .badge {
+      background: #4ade80;
+      color: #0f172a;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(74, 222, 128, 0.4);
+    }
+
+    hr.divider {
+      border: 0;
+      height: 1px;
+      background: var(--glass-border);
+      margin: 40px 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: var(--text-main);
+      text-align: center;
+    }
+
+    input[type="number"], input[type="text"] {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--glass-border);
+      color: var(--text-main);
+      border-radius: 12px;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input[type="number"]:focus, input[type="text"]:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
+    }
+    
+    .btn-secondary {
+      background: linear-gradient(135deg, #ec4899, #db2777);
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(135deg, #db2777, #be185d);
+      box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+    }
+    
+    .lang-selector {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+    
+    .lang-selector select {
+      width: auto;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--glass-border);
+      color: var(--text-main);
+      border-radius: 20px;
+    }
+
+    .header-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .voice-toggle {
+      background: none;
+      border: none;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--glass-border);
+      transition: all 0.3s;
+    }
+
+    .voice-toggle.active {
+      color: var(--primary);
+      border-color: var(--primary);
+      box-shadow: 0 0 10px rgba(74, 222, 128, 0.2);
+    }
+
+    .voice-toggle svg {
+      width: 18px;
+      height: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header-controls">
+      <button class="voice-toggle" id="voiceToggleBtn" onclick="toggleVoice()">
+        <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clip-rule="evenodd"></path></svg>
+        <span>Voice: Off</span>
+      </button>
+      <div class="lang-selector" style="margin-bottom: 0;">
+        <select id="languageSelect" onchange="changeLanguage()">
+          <option value="en">English</option>
+          <option value="pcm">Nigerian Pidgin</option>
+          <option value="ikw">Ikwerre</option>
+        </select>
+      </div>
+    </div>
+    <h1>gracie3MTT PORT HARCOURT MARKET PRICE</h1>
+    <div class="form-group">
+      <label for="itemSelect">Select Food Item</label>
+      <select id="itemSelect">
+        <option value="">-- Choose an item --</option>
+        <option value="rice">Rice (50kg Bag)</option>
+        <option value="garri">Garri (Basin)</option>
+        <option value="beans">Beans (50kg Bag)</option>
+        <option value="yam">Yam (Medium Tuber)</option>
+        <option value="tomatoes">Tomatoes (Basket)</option>
+        <option value="onions">Onions (Bag)</option>
+        <option value="pepper">Pepper (Basket)</option>
+        <option value="palmoil">Palm Oil (25L)</option>
+        <option value="eggs">Eggs (Crate)</option>
+        <option value="chicken">Chicken (Full/Live)</option>
+      </select>
+    </div>
+
+    <button onclick="checkPrices()">Compare Prices</button>
+
+    <div class="table-wrapper" id="tableWrapper">
+      <table id="priceTable">
+        <thead>
+          <tr>
+            <th>Market</th>
+            <th>Price (₦)</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <hr class="divider">
+    
+    <div class="update-section">
+      <h2>Contribute Latest Price</h2>
+      <div class="form-group">
+        <label for="updateItemSelect">Select Food Item</label>
+        <select id="updateItemSelect">
+          <option value="">-- Choose an item --</option>
+          <option value="rice">Rice (50kg Bag)</option>
+          <option value="garri">Garri (Basin)</option>
+          <option value="beans">Beans (50kg Bag)</option>
+          <option value="yam">Yam (Medium Tuber)</option>
+          <option value="tomatoes">Tomatoes (Basket)</option>
+          <option value="onions">Onions (Bag)</option>
+          <option value="pepper">Pepper (Basket)</option>
+          <option value="palmoil">Palm Oil (25L)</option>
+          <option value="eggs">Eggs (Crate)</option>
+          <option value="chicken">Chicken (Full/Live)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="updateMarketSelect">Select Market</label>
+        <select id="updateMarketSelect">
+          <option value="">-- Choose a market --</option>
+          <option value="Mile 1 Market">Mile 1 Market</option>
+          <option value="Mile 3 Market">Mile 3 Market</option>
+          <option value="Oil Mill Market">Oil Mill Market</option>
+          <option value="Rumuokoro Market">Rumuokoro Market</option>
+          <option value="Creek Road Market">Creek Road Market</option>
+          <option value="Choba Market">Choba Market</option>
+          <option value="Borikiri Market">Borikiri Market</option>
+          <option value="Garrison Market">Garrison Market</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="updatePriceInput">Latest Price (₦)</label>
+        <input type="number" id="updatePriceInput" placeholder="Enter latest price" min="0">
+      </div>
+      <button class="btn-secondary" onclick="updatePrice()">Submit Latest Price</button>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        title: "gracie3MTT PORT HARCOURT MARKET PRICE",
+        selectFood: "Select Food Item",
+        chooseItem: "-- Choose an item --",
+        compareBtn: "Compare Prices",
+        marketHeader: "Market",
+        priceHeader: "Price (₦)",
+        statusHeader: "Status",
+        contributeTitle: "Contribute Latest Price",
+        selectMarket: "Select Market",
+        chooseMarket: "-- Choose a market --",
+        latestPriceLabel: "Latest Price (₦)",
+        submitBtn: "Submit Latest Price",
+        alertSelect: "Please select a food item!",
+        alertFill: "Please fill out all fields with valid information to submit a new price.",
+        alertSuccess: "Successfully updated {market} price for {item} to ₦{price}.",
+        alertInvalid: "Invalid item or market selection.",
+        bestPrice: "BEST PRICE"
+      },
+      pcm: {
+        title: "gracie3MTT PORT HARCOURT MARKET PRICE",
+        selectFood: "Choose Food Wetin You Want",
+        chooseItem: "-- Choose one --",
+        compareBtn: "Check Price",
+        marketHeader: "Market",
+        priceHeader: "Money (₦)",
+        statusHeader: "How E Be",
+        contributeTitle: "Put Latest Price",
+        selectMarket: "Choose Market",
+        chooseMarket: "-- Choose market --",
+        latestPriceLabel: "Latest Money (₦)",
+        submitBtn: "Send Latest Price",
+        alertSelect: "Abeg choose food!",
+        alertFill: "Abeg fill everything correct to send new price.",
+        alertSuccess: "You don update {market} price for {item} to ₦{price}.",
+        alertInvalid: "Market or food no correct.",
+        bestPrice: "AWOOF"
+      },
+      ikw: {
+        title: "gracie3MTT ỌNỤ AHỊA AHỊA MGBE",
+        selectFood: "Họrọ Nri",
+        chooseItem: "-- Họrọ otu --",
+        compareBtn: "Lelee Ọnụ Ahịa",
+        marketHeader: "Ahịa",
+        priceHeader: "Ego (₦)",
+        statusHeader: "Ọkwa",
+        contributeTitle: "Tinye Ọnụ Ahịa Ọhụrụ",
+        selectMarket: "Họrọ Ahịa",
+        chooseMarket: "-- Họrọ Ahịa --",
+        latestPriceLabel: "Ego Ọhụrụ (₦)",
+        submitBtn: "Zipu Ọnụ Ahịa Ọhụrụ",
+        alertSelect: "Biko họrọ nri!",
+        alertFill: "Biko dejupụta ihe niile.",
+        alertSuccess: "I tinyela ọnụ ahịa {market} maka {item} bụ ₦{price}.",
+        alertInvalid: "Nri ma ọ bụ ahịa adịghị mma.",
+        bestPrice: "ỌNỤ KA MMA"
+      }
+    };
+
+    let currentLang = 'en';
+
+    function changeLanguage() {
+      currentLang = document.getElementById("languageSelect").value;
+      const t = translations[currentLang];
+      
+      document.querySelector("h1").innerText = t.title;
+      document.querySelector("label[for='itemSelect']").innerText = t.selectFood;
+      document.querySelector("#itemSelect option[value='']").innerText = t.chooseItem;
+      document.querySelector("button[onclick='checkPrices()']").innerText = t.compareBtn;
+      
+      document.querySelector("#priceTable th:nth-child(1)").innerText = t.marketHeader;
+      document.querySelector("#priceTable th:nth-child(2)").innerText = t.priceHeader;
+      document.querySelector("#priceTable th:nth-child(3)").innerText = t.statusHeader;
+      
+      document.querySelector(".update-section h2").innerText = t.contributeTitle;
+      document.querySelector("label[for='updateItemSelect']").innerText = t.selectFood;
+      document.querySelector("#updateItemSelect option[value='']").innerText = t.chooseItem;
+      document.querySelector("label[for='updateMarketSelect']").innerText = t.selectMarket;
+      document.querySelector("#updateMarketSelect option[value='']").innerText = t.chooseMarket;
+      document.querySelector("label[for='updatePriceInput']").innerText = t.latestPriceLabel;
+      document.querySelector("button[onclick='updatePrice()']").innerText = t.submitBtn;
+      
+      const itemSelect = document.getElementById("itemSelect").value;
+      if (itemSelect) {
+         checkPrices();
+      }
+    }
+
+    const marketPrices = {
+      rice: {
+        "Mile 1 Market": 58000,
+        "Mile 3 Market": 55000,
+        "Oil Mill Market": 60000,
+        "Rumuokoro Market": 67000,
+        "Creek Road Market": 69000,
+        "Choba Market": 56500,
+        "Borikiri Market": 71000,
+        "Garrison Market": 79500
+      },
+      garri: {
+        "Mile 1 Market": 12000,
+        "Mile 3 Market": 13000,
+        "Oil Mill Market": 10000,
+        "Rumuokoro Market": 12000,
+        "Creek Road Market": 11500,
+        "Choba Market": 12500,
+        "Borikiri Market": 11500,
+        "Garrison Market": 12000
+      },
+      beans: {
+        "Mile 1 Market": 65000,
+        "Mile 3 Market": 62000,
+        "Oil Mill Market": 67000,
+        "Rumuokoro Market": 64000,
+        "Creek Road Market": 66000,
+        "Choba Market": 63500,
+        "Borikiri Market": 68000,
+        "Garrison Market": 66500
+      },
+      yam: {
+        "Mile 1 Market": 5000,
+        "Mile 3 Market": 4500,
+        "Oil Mill Market": 5200,
+        "Rumuokoro Market": 4800,
+        "Creek Road Market": 5100,
+        "Choba Market": 4600,
+        "Borikiri Market": 5300,
+        "Garrison Market": 5000
+      },
+      tomatoes: {
+        "Mile 1 Market": 3500,
+        "Mile 3 Market": 3200,
+        "Oil Mill Market": 3600,
+        "Rumuokoro Market": 3300,
+        "Creek Road Market": 3400,
+        "Choba Market": 3100,
+        "Borikiri Market": 3800,
+        "Garrison Market": 3500
+      },
+      onions: {
+        "Mile 1 Market": 2500,
+        "Mile 3 Market": 2300,
+        "Oil Mill Market": 2600,
+        "Rumuokoro Market": 2400,
+        "Creek Road Market": 2550,
+        "Choba Market": 2200,
+        "Borikiri Market": 2700,
+        "Garrison Market": 2600
+      },
+      pepper: {
+        "Mile 1 Market": 4000,
+        "Mile 3 Market": 3700,
+        "Oil Mill Market": 4200,
+        "Rumuokoro Market": 3900,
+        "Creek Road Market": 4100,
+        "Choba Market": 3800,
+        "Borikiri Market": 4300,
+        "Garrison Market": 4150
+      },
+      palmoil: {
+        "Mile 1 Market": 1800,
+        "Mile 3 Market": 1750,
+        "Oil Mill Market": 1850,
+        "Rumuokoro Market": 1780,
+        "Creek Road Market": 1820,
+        "Choba Market": 1720,
+        "Borikiri Market": 1900,
+        "Garrison Market": 1850
+      },
+      eggs: {
+        "Mile 1 Market": 2000,
+        "Mile 3 Market": 1900,
+        "Oil Mill Market": 2100,
+        "Rumuokoro Market": 1950,
+        "Creek Road Market": 2050,
+        "Choba Market": 1850,
+        "Borikiri Market": 2150,
+        "Garrison Market": 2000
+      },
+      chicken: {
+        "Mile 1 Market": 3500,
+        "Mile 3 Market": 3300,
+        "Oil Mill Market": 3600,
+        "Rumuokoro Market": 3400,
+        "Creek Road Market": 3550,
+        "Choba Market": 3200,
+        "Borikiri Market": 3700,
+        "Garrison Market": 3600
+      }
+    };
+
+    function checkPrices() {
+      const selectedItem = document.getElementById("itemSelect").value;
+      const tableWrapper = document.getElementById("tableWrapper");
+      const table = document.getElementById("priceTable");
+      const tbody = table.querySelector("tbody");
+      const t = translations[currentLang];
+
+      tbody.innerHTML = "";
+
+      if (!selectedItem) {
+        alert(t.alertSelect);
+        tableWrapper.style.display = "none";
+        return;
+      }
+
+      const prices = marketPrices[selectedItem];
+      const minPrice = Math.min(...Object.values(prices));
+
+      for (let market in prices) {
+        const row = document.createElement("tr");
+        const isCheapest = prices[market] === minPrice;
+
+        row.innerHTML = `
+          <td>${market}</td>
+          <td>₦${prices[market].toLocaleString()}</td>
+          <td>${isCheapest ? `<span class='badge'>${t.bestPrice}</span>` : "-"}</td>
+        `;
+
+        if (isCheapest) {
+          row.classList.add("cheapest");
+        }
+
+        tbody.appendChild(row);
+      }
+
+      tableWrapper.style.display = "block";
+    }
+
+    function updatePrice() {
+      const item = document.getElementById("updateItemSelect").value;
+      const market = document.getElementById("updateMarketSelect").value;
+      const priceStr = document.getElementById("updatePriceInput").value;
+      const price = parseInt(priceStr);
+      const t = translations[currentLang];
+
+      if (!item || !market || !priceStr || isNaN(price) || price < 0) {
+        alert(t.alertFill);
+        return;
+      }
+
+      if (marketPrices[item] && marketPrices[item][market] !== undefined) {
+        marketPrices[item][market] = price;
+        const msg = t.alertSuccess.replace("{market}", market).replace("{item}", item).replace("{price}", price.toLocaleString());
+        alert(msg);
+        
+        document.getElementById("updateItemSelect").value = "";
+        document.getElementById("updateMarketSelect").value = "";
+        document.getElementById("updatePriceInput").value = "";
+
+        if (document.getElementById("itemSelect").value === item) {
+          checkPrices();
+        }
+      } else {
+        alert(t.alertInvalid);
+      }
+    }
+
+    // --- Audio Feedback Feature ---
+    let voiceEnabled = false;
+
+    function toggleVoice() {
+      voiceEnabled = !voiceEnabled;
+      const btn = document.getElementById("voiceToggleBtn");
+      const span = btn.querySelector("span");
+      
+      if (voiceEnabled) {
+        btn.classList.add("active");
+        span.innerText = "Voice: On";
+        speakText("Voice alerts enabled");
+      } else {
+        btn.classList.remove("active");
+        span.innerText = "Voice: Off";
+        window.speechSynthesis.cancel();
+      }
+    }
+
+    function speakText(text) {
+      if (!voiceEnabled || !text) return;
+      window.speechSynthesis.cancel(); // Stop current speaking
+      const utterance = new SpeechSynthesisUtterance(text);
+      // Give it an English baseline, this API struggles deeply with pidgin/ikwerre pronunciations out of the box
+      utterance.lang = 'en-NG'; 
+      utterance.rate = 1;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Attach voice events to interactive elements
+    document.addEventListener("DOMContentLoaded", () => {
+      // Speak when language changes
+      document.getElementById("languageSelect").addEventListener("change", function() {
+        speakText(this.options[this.selectedIndex].text);
+      });
+
+      // Speak when main food item is selected
+      document.getElementById("itemSelect").addEventListener("change", function() {
+        if(this.selectedIndex > 0) speakText(this.options[this.selectedIndex].text);
+      });
+
+      // Speak when contribution food item is selected
+      document.getElementById("updateItemSelect").addEventListener("change", function() {
+        if(this.selectedIndex > 0) speakText(this.options[this.selectedIndex].text);
+      });
+
+      // Speak when market is selected
+      document.getElementById("updateMarketSelect").addEventListener("change", function() {
+        if(this.selectedIndex > 0) speakText(this.options[this.selectedIndex].text);
+      });
+
+      // Speak when main action buttons are clicked
+      document.querySelectorAll("button").forEach(btn => {
+        if (btn.id !== "voiceToggleBtn") {
+          btn.addEventListener("click", function() {
+            speakText(this.innerText);
+          });
+        }
+      });
+
+      // Add click-to-speak functionality to table rows
+      document.getElementById("priceTable").addEventListener("click", function(e) {
+        const tr = e.target.closest("tr");
+        if (tr && tr.parentNode.tagName === "TBODY") {
+          const cells = tr.querySelectorAll("td");
+          if (cells.length >= 2) {
+            const market = cells[0].innerText;
+            const price = cells[1].innerText;
+            const status = cells[2].innerText !== "-" ? "Best Price" : "";
+            speakText(`${market}, ${price}, ${status}`);
+          }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
